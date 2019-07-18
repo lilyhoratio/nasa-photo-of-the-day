@@ -7,3 +7,7 @@
     color: white;
 }
 
+.nav-container a {
+    text-decoration: none;
+    color: #FB3D22;
+}

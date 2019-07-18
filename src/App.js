@@ -9,6 +9,7 @@ import styled from 'styled-components';
 const AppCardDiv = styled.nav`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
 function App() {

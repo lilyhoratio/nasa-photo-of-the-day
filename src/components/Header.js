@@ -19,7 +19,7 @@ const HeaderNavAnchor = styled.a`
 function Header() {
     return (
         <HeaderNav>
-            <img alt="nasa logo" width="180px" src="https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png"></img>
+            <img float="left" alt="nasa logo" width="180px" src="https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png"></img>
             {/* How to get this to work? */}
             <HeaderNavAnchor href="#">Generate a random photo</HeaderNavAnchor>
             <HeaderNavAnchor href="#">Submit a photo</HeaderNavAnchor>

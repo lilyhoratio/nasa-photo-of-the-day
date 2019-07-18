@@ -3,19 +3,22 @@ import axios from "axios";
 import "./App.css";
 import Card from "./components/Card.js";
 import Header from "./components/Header.js";
+import 'semantic-ui-css/semantic.min.css';
+import styled from 'styled-components';
+
+const AppCardDiv = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+`
 
 function App() {
   // for one object
-  const [nasaObj, setNasaObj] = useState({});
+  // const [nasaObj, setNasaObj] = useState({});
 
   // for array of objects
-  // const [nasaObj, setNasaObj] = useState([]);
-
-  // axios directly in function would rerun the GET request each time the function is run
-  // useEffect - whenever data changes from last render of function, useEffect runs callback. runs one time
+  const [nasaObjs, setNasaObjs] = useState([]);
   useEffect(() => {
-    const dateArray = ["2019-01-01", "2019-05-12", "2019-07-18"]
-
+    const dateArray = ["2019-01-01", "2019-05-12", "2017-01-01", "2017-01-02", "2018-01-02", "2019-07-18"]
     dateArray.forEach(newDate => {
       axios
       .get(
@@ -24,8 +27,14 @@ function App() {
       )
       .then(res => {
         const nasaData = res.data;
-        console.log(nasaData);
-        setNasaObj(res.data);
+        console.log(`API DATA OBJECT ==== DATE${newDate}:${nasaData}`);
+        // setNasaObj(res.data);
+
+        setNasaObjs(nasaObjs => {
+          console.log("OBJECT >>>>> ", nasaObjs)
+          //empty array, then concat an object?
+          return nasaObjs.concat(nasaData)
+        })
       })
       .catch(error => console.log("API error", error));
     })
@@ -39,13 +48,28 @@ function App() {
         app! Have fun 🚀!
       </p> */}
       <Header/>
-      <Card 
+
+      {/* for single card */}
+      {/* <Card 
         title={nasaObj.title}
         date={nasaObj.date}
         explanation={nasaObj.explanation}
         mediaType={nasaObj.media_type}
         url={nasaObj.url}
-      />
+      /> */}
+
+      {/* for array of cards */}
+      <AppCardDiv>
+        {nasaObjs.map(nasaObj => (
+          <Card 
+            title={nasaObj.title}
+            date={nasaObj.date}
+            explanation={nasaObj.explanation}
+            mediaType={nasaObj.media_type}
+            url={nasaObj.url}
+          />
+        ))}
+      </AppCardDiv>
     </div>
   );
 }

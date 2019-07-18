@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
-import Card from "./../src/components/Card.js";
-import Header from "./../src/components/Header.js";
+import Card from "./components/Card.js";
+import Header from "./components/Header.js";
 
 function App() {
+  // for one object
   const [nasaObj, setNasaObj] = useState({});
+
+  // for array of objects
+  // const [nasaObj, setNasaObj] = useState([]);
 
   // axios directly in function would rerun the GET request each time the function is run
   // useEffect - whenever data changes from last render of function, useEffect runs callback. runs one time
-
-
   useEffect(() => {
     const dateArray = ["2019-01-01", "2019-05-12", "2019-07-18"]
 

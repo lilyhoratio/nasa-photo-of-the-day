@@ -10,10 +10,10 @@ function Card(props) {
             <h1 className="card-header">{title}</h1>
             <p>{date}</p>
             <p className = "card-explanation">{explanation}</p>
-            {mediaType == "video" ? (
+            {mediaType === "video" ? (
                 <iframe max-width="500" height="340" src={url}></iframe>
             ) : ( 
-                <img max-width="500" height="340" src={url}></img>
+                <img alt="space stuff" max-width="500" height="340" src={url}></img>
             )}
         </div>
         

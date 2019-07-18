@@ -1,14 +1,15 @@
 import React from "react";
+import "./../Card.css";
 
 function Card(props) {
     // console.log("nasa data!!!!", props)
     const {title, date, explanation, mediaType, url} = props
 
     return (
-        <div>
-            <h1>{title}</h1>
+        <div className = "card">
+            <h1 className="card-header">{title}</h1>
             <p>{date}</p>
-            <p>{explanation}</p>
+            <p className = "card-explanation">{explanation}</p>
             {mediaType == "video" ? (
                 <iframe max-width="500" height="340" src={url}></iframe>
             ) : ( 

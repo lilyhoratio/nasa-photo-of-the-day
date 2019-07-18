@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import Card from "./../src/components/Card.js";
+import Header from "./../src/components/Header.js";
 
 function App() {
   const [nasaObj, setNasaObj] = useState({});
@@ -35,6 +36,7 @@ function App() {
         Read through the instructions in the README.md file to build your NASA
         app! Have fun 🚀!
       </p> */}
+      <Header/>
       <Card 
         title={nasaObj.title}
         date={nasaObj.date}

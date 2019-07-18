@@ -1,9 +1,7 @@
 import React from "react";
-// import Iframe from 'react-iframe';
 
 function Card(props) {
-    console.log("nasa data!!!!", props)
-
+    // console.log("nasa data!!!!", props)
     const {title, date, explanation, mediaType, url} = props
 
     return (
@@ -11,7 +9,11 @@ function Card(props) {
             <h1>{title}</h1>
             <p>{date}</p>
             <p>{explanation}</p>
-            <iframe width="420" height="315" src={url}></iframe>
+            {mediaType == "video" ? (
+                <iframe max-width="500" height="340" src={url}></iframe>
+            ) : ( 
+                <img max-width="500" height="340" src={url}></img>
+            )}
         </div>
         
     )
